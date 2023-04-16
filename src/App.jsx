@@ -18,7 +18,7 @@ function App() {
   const [error, setError] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState("");
-  const [showSpinner, setShowSpinner] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(true);
 
   useEffect(()=>{
     setError(false)
@@ -53,7 +53,7 @@ function App() {
         
         {error && <AlertError /> }
         
-        {!error && characters?.map((character) => (
+        {!error && !showSpinner && characters?.map((character) => (
            <Cards key={character.id} character={character} />
             
           ))}
